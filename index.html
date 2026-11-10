@@ -1,96 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script defer src="/_vercel/insights/script.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css"
-    />
-    <title>Vercel HTML Starter</title>
-    <meta
-      name="description"
-      content="High-performance HTML based website template."
-    />
-  </head>
-  <body>
-    <h1>Vercel HTML Starter</h1>
-    <p>
-      This template is a simple, but powerful single
-      <code>index.html</code> file deployed to
-      <a href="https://vercel.com">Vercel</a>. When your site is deployed, all
-      static assets (like HTML, JavaScript, CSS, images, and more) are deployed
-      globally to every
-      <a href="https://vercel.com/docs/concepts/edge-network/overview"
-        >Vercel Edge Network</a
-      >
-      region.
-    </p>
-    <h2>Simple, privacy-friendly analytics</h2>
-    <p>
-      Want to understand your visitor traffic? Vercel Analytics gives you
-      first-party, privacy-friendly traffic analytics for your HTML site. This
-      template is already configured using the following script:
-    </p>
-    <pre><code>&lt;script defer src="/_vercel/insights/script.js"&gt;&lt;/script&gt;</code></pre>
-    <p>
-      Learn more about
-      <a href="https://vercel.com/analytics">Vercel Analytics</a>.
-    </p>
-    <h2>Integrated with git</h2>
-    <p>
-      Deploying updates to your site is as simple as
-      <code>git push</code> thanks to Vercel's advanced
-      <a href="https://vercel.com/docs/concepts/git">Git Integration</a>.
-      Support for GitHub, GitLab, Bitbucket is zero-configuration, and with the
-      flexible Vercel CLI and API, you can integrate with any tool possible.
-    </p>
-    <p>
-      Learn more about
-      <a href="https://vercel.com/docs/concepts/git">Git Integration</a>.
-    </p>
-    <h2>Fast <code>gzip</code> compression</h2>
-    <p>
-      To help ensure the smallest possible file sizes for your static assets,
-      the Vercel Edge Network compresses files by default using
-      <code>gzip</code>. You can also optionally use
-      <code>brotli</code> compressesion if you prefer.
-    </p>
-    <p>
-      Learn more about
-      <a href="https://vercel.com/docs/concepts/edge-network/compression"
-        >compression</a
-      >.
-    </p>
-    <h2>Advanced routing configuration</h2>
-    <p>
-      Vercel gives you a variety of ways to configure the routing of your
-      website. For example, adding redirects, rewrites, or headers to your page.
-      While you can use <code>vercel.json</code> to define these through JSON,
-      you can also express your routing configuration as code using
-      <a href="https://vercel.com/docs/concepts/functions/edge-middleware"
-        >Vercel Edge Middleware</a
-      >.
-    </p>
-    <p>
-      Middleware runs before the
-      <a href="https://vercel.com/docs/concepts/edge-network/caching"
-        >Vercel Edge Network Cache</a
-      >, so you can configure routing exactly as your application needs. For
-      example, this template uses <code>middleware.js</code> defined in the root
-      of the repository to add additional security headers to the site:
-    </p>
-    <pre><code>referrer-policy: origin-when-cross-origin
-strict-transport-security: max-age=31536000; includeSubDomains; preload
-x-content-type-options: nosniff
-x-dns-prefetch-control: on
-x-frame-options: DENY</code></pre>
-    <p>
-      Learn more about
-      <a href="https://vercel.com/docs/concepts/functions/edge-middleware"
-        >Vercel Edge Middleware</a
-      >.
-    </p>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#10121b" />
+  <meta name="description" content="A bright little arcade packed with quick, free-to-play browser games." />
+  <title>Playroom — Tiny games, big fun</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
+    :root{color-scheme:dark;--bg:#10121b;--panel:#191c29;--panel2:#202435;--muted:#a3a9bb;--text:#f6f7fb;--purple:#a78bfa;--pink:#fb7185;--line:rgba(255,255,255,.09)}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 70% -15%,rgba(124,92,246,.2),transparent 42%),var(--bg);color:var(--text);font:15px 'DM Sans',sans-serif;min-height:100vh}button,input{font:inherit}button{cursor:pointer;color:inherit}a{color:inherit;text-decoration:none}
+    .shell{max-width:1220px;margin:auto;padding:0 28px}.topbar{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:11px;font:700 21px 'Space Grotesk',sans-serif;letter-spacing:-.7px}.brand-icon{width:37px;height:37px;display:grid;place-items:center;border-radius:12px;background:linear-gradient(135deg,#a78bfa,#f472b6);font-size:20px;box-shadow:0 6px 22px #a78bfa33}.nav{display:flex;gap:27px;color:var(--muted);font-weight:600}.nav a:hover,.nav a.active{color:#fff}.status{border:1px solid var(--line);border-radius:999px;padding:8px 12px;color:#c5cad7;font-size:12px}.status i{display:inline-block;width:7px;height:7px;border-radius:50%;background:#71e6ad;margin-right:7px}
+    .hero{padding:58px 0 34px;display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:34px}.eyebrow{color:#c4b5fd;text-transform:uppercase;letter-spacing:1.8px;font-size:11px;font-weight:800}.hero h1{font:700 clamp(38px,5vw,62px)/1.04 'Space Grotesk',sans-serif;letter-spacing:-2.7px;margin:12px 0 15px;max-width:620px}.hero h1 span{background:linear-gradient(90deg,#c4b5fd,#fb9ac1);background-clip:text;color:transparent}.hero p{color:var(--muted);font-size:16px;line-height:1.65;max-width:550px;margin:0}.hero-art{position:relative;min-height:190px;display:grid;place-items:center}.orb{width:155px;height:155px;border-radius:38px;transform:rotate(-13deg);background:linear-gradient(145deg,#8b5cf6,#ec4899);display:grid;place-items:center;font-size:80px;box-shadow:0 25px 80px #8b5cf644, inset 0 2px 2px #ffffff55;animation:float 4s ease-in-out infinite}.spark{position:absolute;font-size:25px;animation:float 3s ease-in-out infinite}.s1{top:7px;left:25%}.s2{bottom:15px;right:18%;animation-delay:.7s}.s3{top:25px;right:23%;animation-delay:1.2s}@keyframes float{50%{transform:translateY(-10px) rotate(4deg)}}
+    .search-row{display:flex;gap:12px;margin:8px 0 26px}.search-wrap{position:relative;flex:1}.search-wrap span{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:#9097aa;font-size:19px}.search{width:100%;height:52px;padding:0 18px 0 47px;border-radius:14px;border:1px solid var(--line);background:#191c29;color:var(--text);outline:none}.search:focus{border-color:#a78bfa;box-shadow:0 0 0 3px #a78bfa22}.search::placeholder{color:#83899c}.shortcut{height:52px;border:1px solid var(--line);background:#191c29;color:#c4c8d3;border-radius:14px;padding:0 18px;font-weight:700}.shortcut:hover{border-color:#a78bfa;color:white}
+    .section-head{display:flex;justify-content:space-between;align-items:end;margin:24px 0 16px}.section-head h2{margin:0;font:700 23px 'Space Grotesk',sans-serif;letter-spacing:-.6px}.section-head p{margin:5px 0 0;color:var(--muted);font-size:13px}.count{color:#9ba2b5;font-size:13px}.filters{display:flex;gap:8px;overflow:auto;padding:1px 0 16px;scrollbar-width:none}.filters::-webkit-scrollbar{display:none}.chip{white-space:nowrap;border:1px solid var(--line);background:transparent;color:#aeb3c2;padding:9px 15px;border-radius:999px;font-weight:600;font-size:13px;transition:.2s}.chip:hover,.chip.active{background:#a78bfa;color:#171321;border-color:#a78bfa}
+    .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:17px;padding-bottom:50px}.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:transform .2s,border-color .2s,box-shadow .2s;cursor:pointer}.card:hover{transform:translateY(-5px);border-color:#a78bfa66;box-shadow:0 15px 40px #0003}.cover{height:137px;display:grid;place-items:center;font-size:55px;position:relative;overflow:hidden}.cover:before{content:'';position:absolute;width:135px;height:135px;border-radius:50%;background:#ffffff19;right:-20px;top:-44px}.cover:after{content:'';position:absolute;width:95px;height:95px;border:1px solid #ffffff25;border-radius:50%;left:-24px;bottom:-48px}.cover .emoji{z-index:1;filter:drop-shadow(0 8px 8px #0003);transition:transform .2s}.card:hover .emoji{transform:scale(1.12) rotate(-5deg)}.card-body{padding:14px 15px 15px}.card-title{display:flex;justify-content:space-between;align-items:center;gap:6px}.card h3{margin:0;font:700 16px 'Space Grotesk',sans-serif}.play-arrow{color:#afb5c6;font-size:18px}.card p{color:#a1a7b8;font-size:12px;margin:7px 0 13px;line-height:1.45;min-height:34px}.tags{display:flex;gap:6px}.tag{padding:5px 8px;border-radius:6px;background:#ffffff0b;color:#b9bfd0;font-size:10px;font-weight:700;letter-spacing:.2px}.no-results{grid-column:1/-1;text-align:center;padding:56px 10px;color:var(--muted)}
+    .footer{border-top:1px solid var(--line);padding:22px 0 30px;color:#8f96a9;font-size:12px;line-height:1.6;display:flex;justify-content:space-between;gap:20px}.footer strong{color:#c3c8d4}.footer .note{max-width:740px}.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#25293a;border:1px solid var(--line);padding:12px 17px;border-radius:12px;transition:.2s;z-index:20}.toast.show{opacity:1;transform:translate(-50%,0)}
+    .modal{position:fixed;inset:0;background:#090a10dd;backdrop-filter:blur(8px);z-index:10;display:none;align-items:center;justify-content:center;padding:20px}.modal.open{display:flex}.game-window{width:min(650px,100%);max-height:min(760px,92vh);overflow:auto;background:#191c29;border:1px solid #ffffff19;border-radius:22px;box-shadow:0 30px 100px #0008}.game-top{display:flex;justify-content:space-between;align-items:center;padding:18px 22px;border-bottom:1px solid var(--line)}.game-top h2{font:700 19px 'Space Grotesk',sans-serif;margin:0}.close{border:0;background:#ffffff10;border-radius:10px;width:36px;height:36px;font-size:21px;color:#ddd}.game-content{min-height:290px;padding:26px;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center}.game-content p{color:var(--muted)}.game-btn{border:0;border-radius:11px;padding:11px 18px;background:linear-gradient(120deg,#a78bfa,#e879f9);color:#191321;font-weight:800;margin:5px}.game-btn:hover{filter:brightness(1.1);transform:translateY(-1px)}.game-btn.secondary{background:#ffffff12;color:#fff}.big-stat{font:700 42px 'Space Grotesk',sans-serif;margin:10px}.board{display:grid;gap:8px;justify-content:center;margin:15px auto}.ttt{grid-template-columns:repeat(3,76px)}.ttt button{width:76px;height:76px;font-size:30px;font-weight:800;border:1px solid var(--line);background:#232739;border-radius:13px}.memory{grid-template-columns:repeat(4,58px)}.memory button{height:58px;width:58px;border:1px solid var(--line);background:#262a3d;border-radius:11px;font-size:25px}.memory button.revealed{background:#4b3b76}.rps{font-size:40px}.guess-input{width:100px;padding:10px;border:1px solid var(--line);background:#10121b;color:white;border-radius:9px;text-align:center}.click-target{width:150px;height:150px;border:0;border-radius:50%;background:linear-gradient(145deg,#fb7185,#a78bfa);font-size:42px;box-shadow:0 10px 40px #a78bfa44}.reaction-pad{min-height:140px;width:min(380px,100%);border-radius:16px;border:0;background:#38304f;font-weight:800;font-size:19px}.reaction-pad.wait{background:#9e3b52}.reaction-pad.go{background:#36a77d;color:#071b13}.math-answer{width:130px;padding:12px;border-radius:10px;border:1px solid var(--line);background:#10121b;color:white;text-align:center;font-size:19px}.snake-canvas{background:#10121b;border:1px solid var(--line);border-radius:10px;max-width:100%;touch-action:none}.mobile-controls{display:flex;gap:8px;margin-top:8px}
+    @media(max-width:900px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.hero{grid-template-columns:1fr .55fr}.nav{gap:15px}}
+    @media(max-width:650px){.shell{padding:0 17px}.nav{display:none}.status{font-size:11px;padding:7px 9px}.hero{padding:42px 0 28px;display:block}.hero-art{display:none}.hero h1{font-size:45px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.cover{height:115px;font-size:47px}.card-body{padding:12px}.card h3{font-size:14px}.card p{font-size:11px}.footer{display:block}.footer .note{margin-bottom:7px}.section-head h2{font-size:21px}.shortcut{padding:0 12px}.game-content{padding:20px 14px}}
+    @media(max-width:380px){.grid{grid-template-columns:1fr}.cover{height:140px}.search-row{gap:7px}.shortcut{padding:0 9px;font-size:12px}}
+  </style>
+</head>
+<body>
+  <header class="shell topbar">
+    <a class="brand" href="#top" aria-label="Playroom home"><span class="brand-icon">✦</span> playroom</a>
+    <nav class="nav" aria-label="Main navigation"><a class="active" href="#games">Games</a><a href="#games" data-nav-filter="Puzzle">Puzzles</a><a href="#games" data-nav-filter="Arcade">Arcade</a></nav>
+    <div class="status"><i></i> All games, no downloads</div>
+  </header>
+  <main class="shell" id="top">
+    <section class="hero"><div><div class="eyebrow">Your new favorite break</div><h1>Small games.<br><span>Big fun.</span></h1><p>Jump into quick challenges, clever puzzles, and classic arcade favorites. Pick a game and play right here.</p></div><div class="hero-art" aria-hidden="true"><span class="spark s1">✦</span><span class="spark s2">✧</span><span class="spark s3">✦</span><div class="orb">🎮</div></div></section>
+    <div class="search-row"><label class="search-wrap"><span>⌕</span><input id="search" class="search" type="search" placeholder="Search games..." aria-label="Search games" autocomplete="off" /></label><button class="shortcut" id="randomBtn">🎲 Surprise me</button></div>
+    <section id="games"><div class="section-head"><div><h2>Explore games</h2><p>A little something for every mood.</p></div><span class="count" id="count"></span></div><div class="filters" id="filters" aria-label="Filter games"></div><div class="grid" id="grid"></div></section>
+  </main>
+  <footer class="shell footer"><div class="note"><strong>Play kindly.</strong> This page is for fun and learning. If you’re using a school-managed device or network, follow your school’s technology rules. Playroom does not bypass GoGuardian, web filters, or device restrictions.</div><div>Made for curious minds ✨</div></footer>
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="gameTitle"><div class="game-window"><div class="game-top"><h2 id="gameTitle">Game</h2><button class="close" id="close" aria-label="Close game">×</button></div><div class="game-content" id="gameContent"></div></div></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+  const games=[
+    {id:'ttt',name:'Tic-Tac-Toe',desc:'A tiny board. A big battle of wits.',category:'Puzzle',emoji:'⭕',color:'linear-gradient(135deg,#5143a8,#a78bfa)',tags:['2 PLAYER','CLASSIC']},
+    {id:'memory',name:'Memory Match',desc:'Flip cards and find every matching pair.',category:'Puzzle',emoji:'🧠',color:'linear-gradient(135deg,#d45d91,#fb9a9e)',tags:['BRAIN','QUICK']},
+    {id:'snake',name:'Snake',desc:'Snack, grow, and don’t bump into yourself.',category:'Arcade',emoji:'🐍',color:'linear-gradient(135deg,#167c68,#62d6a5)',tags:['ARCADE','CLASSIC']},
+    {id:'reaction',name:'Reaction Time',desc:'How fast can you hit the green?',category:'Arcade',emoji:'⚡',color:'linear-gradient(135deg,#b65b23,#ffb84d)',tags:['SPEED','QUICK']},
+    {id:'clicker',name:'Star Clicker',desc:'Catch as many stars as you can in 10 seconds.',category:'Arcade',emoji:'⭐',color:'linear-gradient(135deg,#bd426e,#ff90b3)',tags:['SCORE','QUICK']},
+    {id:'rps',name:'Rock Paper Scissors',desc:'The timeless showdown. You vs. the computer.',category:'Classic',emoji:'✊',color:'linear-gradient(135deg,#337ea6,#7ac8e8)',tags:['CLASSIC','QUICK']},
+    {id:'guess',name:'Number Quest',desc:'Can you find the secret number in 7 tries?',category:'Puzzle',emoji:'🔮',color:'linear-gradient(135deg,#6944ad,#c19aff)',tags:['BRAIN','GUESS']},
+    {id:'math',name:'Math Sprint',desc:'Solve as many quick-fire sums as you can.',category:'Brain',emoji:'➗',color:'linear-gradient(135deg,#287b88,#72dce3)',tags:['BRAIN','SCORE']}
+  ];
+  const categories=['All Games','Arcade','Puzzle','Classic','Brain'];let activeCategory='All Games';let currentGame=null;let timers=[];let snakeState=null;
+  const grid=document.getElementById('grid'),filters=document.getElementById('filters'),search=document.getElementById('search'),modal=document.getElementById('modal'),content=document.getElementById('gameContent');
+  const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  function renderFilters(){filters.innerHTML=categories.map(c=>`<button class="chip ${activeCategory===c?'active':''}" data-category="${c}">${c}</button>`).join('');filters.querySelectorAll('button').forEach(b=>b.onclick=()=>{activeCategory=b.dataset.category;renderFilters();renderGames()})}
+  function renderGames(){const q=search.value.trim().toLowerCase();const found=games.filter(g=>(activeCategory==='All Games'||g.category===activeCategory)&&(!q||(g.name+' '+g.desc+' '+g.category+' '+g.tags.join(' ')).toLowerCase().includes(q)));document.getElementById('count').textContent=`${found.length} ${found.length===1?'game':'games'}`;grid.innerHTML=found.length?found.map(g=>`<article class="card" tabindex="0" role="button" aria-label="Play ${esc(g.name)}" data-game="${g.id}"><div class="cover" style="background:${g.color}"><span class="emoji">${g.emoji}</span></div><div class="card-body"><div class="card-title"><h3>${esc(g.name)}</h3><span class="play-arrow">↗</span></div><p>${esc(g.desc)}</p><div class="tags">${g.tags.map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div></div></article>`).join(''):'<div class="no-results">No games found. Try another search or category ✨</div>';grid.querySelectorAll('[data-game]').forEach(card=>{card.onclick=()=>openGame(card.dataset.game);card.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openGame(card.dataset.game)}}})}
+  search.addEventListener('input',renderGames);filters.addEventListener('click',e=>{if(e.target.matches('[data-category]')){activeCategory=e.target.dataset.category;renderFilters();renderGames()}});
+  document.querySelectorAll('[data-nav-filter]').forEach(a=>a.onclick=()=>{activeCategory=a.dataset.navFilter;renderFilters();renderGames()});
+  document.getElementById('randomBtn').onclick=()=>openGame(games[Math.floor(Math.random()*games.length)].id);
+  function later(fn,ms){const id=setTimeout(fn,ms);timers.push(id);return id}function clearTimers(){timers.forEach(clearTimeout);timers=[];if(snakeState?.raf)cancelAnimationFrame(snakeState.raf);snakeState=null}
+  function openGame(id){clearTimers();currentGame=games.find(g=>g.id===id);if(!currentGame)return;document.getElementById('gameTitle').textContent=currentGame.name;modal.classList.add('open');document.body.style.overflow='hidden';launch(id)}
+  function closeGame(){modal.classList.remove('open');document.body.style.overflow='';clearTimers()}
+  document.getElementById('close').onclick=closeGame;modal.addEventListener('click',e=>{if(e.target===modal)closeGame()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeGame()});
+  function launch(id){if(id==='ttt')ticTacToe();if(id==='memory')memory();if(id==='snake')snake();if(id==='reaction')reaction();if(id==='clicker')clicker();if(id==='rps')rps();if(id==='guess')guess();if(id==='math')mathSprint()}
+  function ticTacToe(){let cells=Array(9).fill(''),turn='X',done=false;content.innerHTML='<p id="tttStatus">Your move — you are <b>X</b></p><div class="board ttt" id="tttBoard"></div><button class="game-btn secondary" id="tttAgain">New round</button>';const board=document.getElementById('tttBoard'),status=document.getElementById('tttStatus');function draw(){board.innerHTML=cells.map((v,i)=>`<button aria-label="Cell ${i+1}">${v}</button>`).join('');board.querySelectorAll('button').forEach((b,i)=>b.onclick=()=>move(i))}function winner(){for(const [a,b,c] of [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]])if(cells[a]&&cells[a]===cells[b]&&cells[a]===cells[c])return cells[a];return cells.every(Boolean)?'draw':null}function move(i){if(done||cells[i])return;cells[i]=turn;const w=winner();if(w){done=true;status.textContent=w==='draw'?'It’s a draw!':`${w} wins!`;draw();return}turn=turn==='X'?'O':'X';status.textContent=`${turn === 'X'?'Your':'Opponent’s'} move — ${turn}`;draw()}document.getElementById('tttAgain').onclick=ticTacToe;draw()}
+  function memory(){const symbols=['🍓','🐸','🌈','🪐','🍄','🦋','🍉','🐙'];let deck=[...symbols,...symbols].sort(()=>Math.random()-.5),open=[],matched=new Set(),moves=0,locked=false;content.innerHTML='<p id="memInfo">Find all the matching pairs. Moves: 0</p><div class="board memory" id="memBoard"></div><button class="game-btn secondary" id="memAgain">Shuffle cards</button>';const board=document.getElementById('memBoard');function draw(){board.innerHTML=deck.map((v,i)=>`<button aria-label="Card ${i+1}" class="${matched.has(i)||open.includes(i)?'revealed':''}">${matched.has(i)||open.includes(i)?v:'?'}</button>`).join('');board.querySelectorAll('button').forEach((b,i)=>b.onclick=()=>flip(i))}function flip(i){if(locked||matched.has(i)||open.includes(i))return;open.push(i);draw();if(open.length===2){moves++;document.getElementById('memInfo').textContent=`Find all the matching pairs. Moves: ${moves}`;if(deck[open[0]]===deck[open[1]]){matched.add(open[0]);matched.add(open[1]);open=[];draw();if(matched.size===deck.length)document.getElementById('memInfo').textContent=`You got them all in ${moves} moves! 🎉`}else{locked=true;later(()=>{open=[];locked=false;draw()},700)}}}document.getElementById('memAgain').onclick=memory;draw()}
+  function reaction(){content.innerHTML='<p id="reactInfo">Wait for green, then tap as fast as you can.</p><button class="reaction-pad" id="reactPad">Tap to start</button>';const pad=document.getElementById('reactPad'),info=document.getElementById('reactInfo');let phase='start',start=0;pad.onclick=()=>{if(phase==='start'||phase==='done'){phase='wait';pad.className='reaction-pad wait';pad.textContent='Wait for green...';info.textContent='Get ready...';later(()=>{if(phase!=='wait')return;phase='go';start=performance.now();pad.className='reaction-pad go';pad.textContent='TAP NOW!';info.textContent='Now!'},1200+Math.random()*2400)}else if(phase==='wait'){phase='done';pad.className='reaction-pad';pad.textContent='Too soon! Try again';info.textContent='False start — wait for green.'}else if(phase==='go'){const ms=Math.round(performance.now()-start);phase='done';pad.className='reaction-pad';pad.textContent='Play again';info.textContent=`Your time: ${ms} ms — ${ms<250?'Lightning fast!':'Nice reflexes!'}`}}}
+  function clicker(){let score=0,time=10,active=false;content.innerHTML='<p id="clickInfo">Tap the star as many times as you can!</p><div class="big-stat" id="clickScore">0</div><button class="click-target" id="clickTarget" aria-label="Click star">⭐</button><p id="clickTime">10 seconds</p>';const btn=document.getElementById('clickTarget');btn.onclick=()=>{if(!active){active=true;later(tick,1000)}if(time>0){score++;document.getElementById('clickScore').textContent=score}};function tick(){if(!active)return;time--;document.getElementById('clickTime').textContent=`${time} second${time===1?'':'s'}`;if(time<=0){active=false;btn.disabled=true;document.getElementById('clickInfo').textContent=`Time! You scored ${score}.`;btn.textContent='🎉'}else later(tick,1000)}}
+  function rps(){let score=0;content.innerHTML='<p id="rpsInfo">Pick your move!</p><div class="big-stat" id="rpsScore">0 — 0</div><div class="rps">'+[['rock','✊'],['paper','✋'],['scissors','✌️']].map(([n,e])=>`<button class="game-btn" data-rps="${n}" style="font-size:24px">${e}</button>`).join('')+'</div><p>First number: you · Second: computer</p>';content.querySelectorAll('[data-rps]').forEach(b=>b.onclick=()=>{const you=b.dataset.rps,opts=['rock','paper','scissors'],cpu=opts[Math.floor(Math.random()*3)];let result=you===cpu?'Tie!':((you==='rock'&&cpu==='scissors')||(you==='paper'&&cpu==='rock')||(you==='scissors'&&cpu==='paper'))?'You win this round!':'Computer wins this round!';if(result.startsWith('You'))score++;document.getElementById('rpsInfo').textContent=`You: ${you} · Computer: ${cpu} — ${result}`;document.getElementById('rpsScore').textContent=`${score} — ${Math.max(0,Number(document.getElementById('rpsScore').textContent.split(' — ')[1])+(result.startsWith('Computer')?1:0))}`})}
+  function guess(){const target=Math.floor(Math.random()*100)+1;let tries=0;content.innerHTML='<p>Pick a number from 1 to 100. You have 7 tries!</p><div><input class="guess-input" id="guessInput" type="number" min="1" max="100" aria-label="Your guess"><button class="game-btn" id="guessBtn">Guess</button></div><div class="big-stat" id="guessHint">?</div><p id="guessTries">7 guesses left</p><button class="game-btn secondary" id="guessAgain">New number</button>';const input=document.getElementById('guessInput'),hint=document.getElementById('guessHint'),triesText=document.getElementById('guessTries'),btn=document.getElementById('guessBtn');function submit(){let n=Number(input.value);if(!n||n<1||n>100){hint.textContent='1–100!';return}tries++;if(n===target){hint.textContent='You got it! 🎉';triesText.textContent=`Solved in ${tries} ${tries===1?'guess':'guesses'}`;btn.disabled=true}else if(tries>=7){hint.textContent=`It was ${target}`;triesText.textContent='Out of guesses!';btn.disabled=true}else{hint.textContent=n<target?'Higher ↑':'Lower ↓';triesText.textContent=`${7-tries} guesses left`}input.value='';input.focus()}btn.onclick=submit;input.onkeydown=e=>{if(e.key==='Enter')submit()};document.getElementById('guessAgain').onclick=guess;input.focus()}
+  function mathSprint(){let score=0,time=30,answer=0,active=true;content.innerHTML='<p>Solve as many as you can in 30 seconds!</p><div class="big-stat" id="mathProblem"></div><input class="math-answer" id="mathAnswer" type="number" aria-label="Answer" placeholder="Answer"><div class="big-stat" id="mathScore">0</div><p id="mathTime">30 seconds</p>';const input=document.getElementById('mathAnswer');function problem(){let a=Math.floor(Math.random()*12)+1,b=Math.floor(Math.random()*12)+1,op=Math.random()<.5?'+':'×';answer=op==='+'?a+b:a*b;document.getElementById('mathProblem').textContent=`${a} ${op} ${b} = ?`}input.oninput=()=>{if(Number(input.value)===answer){score++;document.getElementById('mathScore').textContent=score;input.value='';problem()}};function tick(){if(!active)return;time--;document.getElementById('mathTime').textContent=`${time} second${time===1?'':'s'}`;if(time<=0){active=false;input.disabled=true;document.getElementById('mathProblem').textContent=`Time! Score: ${score}`;return}later(tick,1000)}problem();input.focus();later(tick,1000)}
+  function snake(){content.innerHTML='<p>Use arrow keys or WASD. On mobile, use the buttons.</p><canvas class="snake-canvas" id="snakeCanvas" width="320" height="320" aria-label="Snake game board"></canvas><p id="snakeScore">Score: 0</p><div class="mobile-controls"><button class="game-btn secondary" data-dir="up">↑</button><button class="game-btn secondary" data-dir="left">←</button><button class="game-btn secondary" data-dir="down">↓</button><button class="game-btn secondary" data-dir="right">→</button></div><button class="game-btn" id="snakeAgain">Start / restart</button>';const canvas=document.getElementById('snakeCanvas'),ctx=canvas.getContext('2d'),size=16,step=20;let snakeArr=[{x:8,y:8},{x:7,y:8},{x:6,y:8}],dir={x:1,y:0},next={x:1,y:0},food={x:12,y:8},score=0,alive=false,last=0;snakeState={};function paint(){ctx.fillStyle='#10121b';ctx.fillRect(0,0,320,320);ctx.fillStyle='#fb7185';ctx.beginPath();ctx.arc(food.x*step+10,food.y*step+10,7,0,Math.PI*2);ctx.fill();ctx.fillStyle='#74e4ad';snakeArr.forEach((p,i)=>{ctx.fillStyle=i?'#3cc89a':'#9af0c9';ctx.fillRect(p.x*step+2,p.y*step+2,16,16)});if(!alive){ctx.fillStyle='#ffffff';ctx.font='bold 17px DM Sans';ctx.textAlign='center';ctx.fillText(score?'Game over — press restart':'Press start to play',160,165)}}function setDir(name){const d={up:{x:0,y:-1},down:{x:0,y:1},left:{x:-1,y:0},right:{x:1,y:0}}[name];if(d&&!(d.x===-dir.x&&d.y===-dir.y))next=d}function tick(ts){if(!alive)return;if(ts-last>130){last=ts;dir=next;const head={x:snakeArr[0].x+dir.x,y:snakeArr[0].y+dir.y};if(head.x<0||head.y<0||head.x>=size||head.y>=size||snakeArr.some(p=>p.x===head.x&&p.y===head.y)){alive=false;paint();return}snakeArr.unshift(head);if(head.x===food.x&&head.y===food.y){score++;document.getElementById('snakeScore').textContent=`Score: ${score}`;do{food={x:Math.floor(Math.random()*size),y:Math.floor(Math.random()*size)}}while(snakeArr.some(p=>p.x===food.x&&p.y===food.y))}else snakeArr.pop();paint()}snakeState.raf=requestAnimationFrame(tick)}function start(){snakeArr=[{x:8,y:8},{x:7,y:8},{x:6,y:8}];dir=next={x:1,y:0};food={x:12,y:8};score=0;alive=true;last=0;document.getElementById('snakeScore').textContent='Score: 0';cancelAnimationFrame(snakeState.raf);paint();snakeState.raf=requestAnimationFrame(tick)}document.getElementById('snakeAgain').onclick=start;content.querySelectorAll('[data-dir]').forEach(b=>b.onclick=()=>setDir(b.dataset.dir));snakeState.key=e=>{const key=e.key.toLowerCase(),map={arrowup:'up',w:'up',arrowdown:'down',s:'down',arrowleft:'left',a:'left',arrowright:'right',d:'right'};if(map[key]){e.preventDefault();setDir(map[key])}};document.addEventListener('keydown',snakeState.key);const oldClose=document.getElementById('close').onclick;document.getElementById('close').onclick=()=>{document.removeEventListener('keydown',snakeState?.key);oldClose()};paint()}
+  renderFilters();renderGames();
+</script>
+</body>
 </html>
