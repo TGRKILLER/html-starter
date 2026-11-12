@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#090506">
+  <title>One-Tap Drift — Redline Arcade</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;min-height:100vh;background:#090506;color:#fff7f7;font:15px system-ui,sans-serif;text-align:center;padding:20px;background-image:radial-gradient(ellipse at 50% 0,#48121b,transparent 55%)}a{color:#ff9da7}.top{max-width:850px;margin:0 auto 18px;display:flex;justify-content:space-between;align-items:center}h1{font-size:clamp(24px,5vw,38px);margin:18px 0 8px}p{color:#c0aeb1;line-height:1.6}canvas{width:min(94vw,800px);height:min(60vh,480px);background:#10141a;border:1px solid #ff485866;border-radius:12px;touch-action:none}#status{color:#ff9da7;font-weight:700}.controls{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:12px}button{border:0;border-radius:8px;background:#a90e24;color:#fff;padding:12px 18px;font-weight:800;cursor:pointer;touch-action:none}
+  </style>
+</head>
+<body>
+  <nav class="top"><a href="../index.html">← Back to arcade</a><span>UMGAMEZ? · ORIGINAL GAME</span></nav>
+  <h1>One-Tap Drift</h1><p>Hold Space, click, or press and hold the button to drift through the turns. Avoid the edge!</p>
+  <div id="status" aria-live="polite">Distance: 0</div><canvas id="game" width="800" height="460" aria-label="One-Tap Drift driving game"></canvas>
+  <div class="controls"><button id="go" type="button">HOLD TO DRIFT</button><button id="again" type="button">Restart</button></div>
+  <script>
+    (()=>{const c=document.getElementById('game'),x=c.getContext('2d'),status=document.getElementById('status'),go=document.getElementById('go');let dist=0,alive=true,hold=false,t=0,lane=0;
+      function down(e){e.preventDefault();hold=true}function up(){hold=false}go.onpointerdown=down;go.onpointerup=up;go.onpointerleave=up;go.onpointercancel=up;window.onkeydown=e=>{if(e.code==='Space'){e.preventDefault();hold=true}};window.onkeyup=e=>{if(e.code==='Space')hold=false};
+      function reset(){dist=0;alive=true;t=0;lane=0;status.textContent='Distance: 0'}document.getElementById('again').onclick=reset;
+      function draw(){x.clearRect(0,0,800,460);x.fillStyle='#142016';x.fillRect(0,0,800,460);const bend=Math.sin(t*.012)*100,center=400+bend;
+        x.beginPath();x.moveTo(center-150,0);x.lineTo(center+150,0);x.lineTo(center+85,460);x.lineTo(center-85,460);x.closePath();x.fillStyle='#393336';x.fill();x.strokeStyle='#e8b3a133';x.lineWidth=3;x.setLineDash([22,20]);x.beginPath();x.moveTo(center,0);x.lineTo(center,460);x.stroke();x.setLineDash([]);
+        const carX=center+lane;x.save();x.translate(carX,340);x.rotate(hold?Math.sin(t*.12)*.28:Math.sin(t*.02)*.05);x.fillStyle='#fa344b';x.shadowColor='#ff3347';x.shadowBlur=17;x.fillRect(-18,-31,36,62);x.shadowBlur=0;x.fillStyle='#ffd9dc';x.fillRect(-12,-19,24,16);x.restore();
+        if(alive){if(hold)lane+=Math.sin(t*.13)*2.1;else lane+=(0-lane)*.045;if(Math.abs(lane)>72){alive=false;status.textContent='Off the road! Distance: '+Math.floor(dist/5)+' — restart to try again.'}else{dist+=hold?1.8:1;t++;if(t%60===0)status.textContent='Distance: '+Math.floor(dist/5)+(hold?' · drifting!':'')}}requestAnimationFrame(draw)}draw();
+    })();
+  </script>
+</body>
+</html>
