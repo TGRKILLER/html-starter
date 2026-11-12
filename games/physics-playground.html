@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#090506">
+  <title>Physics Playground — Redline Arcade</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;min-height:100vh;background:#090506;color:#fff7f7;font:15px system-ui,sans-serif;text-align:center;padding:20px;background-image:radial-gradient(ellipse at 50% 0,#48121b,transparent 55%)}a{color:#ff9da7}.top{max-width:900px;margin:0 auto 18px;display:flex;justify-content:space-between;align-items:center}h1{font-size:clamp(24px,5vw,38px);margin:18px 0 8px}p{color:#c0aeb1;line-height:1.6}.controls{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:15px}button{border:1px solid #ffffff30;background:#241116;color:white;border-radius:8px;padding:10px 14px;font-weight:700;cursor:pointer}button:hover{background:#3a1820}canvas{width:min(94vw,850px);height:min(62vh,520px);border:1px solid #ff485866;border-radius:12px;background:linear-gradient(#171018,#090506);touch-action:none}#status{color:#ff9da7}
+  </style>
+</head>
+<body>
+  <nav class="top"><a href="../index.html">← Back to arcade</a><span>UMGAMEZ? · ORIGINAL GAME</span></nav>
+  <h1>Physics Playground</h1><p>Click or tap to add a toy. Drag toys to toss them. Gravity is on.</p>
+  <div class="controls"><button id="add" type="button">🍉 Add toy</button><button id="reset" type="button">Reset toys</button><span id="status" aria-live="polite">Toys: 0</span></div>
+  <canvas id="game" width="900" height="560" aria-label="Physics sandbox game"></canvas>
+  <script>
+    (()=>{const c=document.getElementById('game'),x=c.getContext('2d'),status=document.getElementById('status');let balls=[],drag=null,last=null;
+      function add(px=Math.random()*c.width,py=50){balls.push({x:px,y:py,r:12+Math.random()*13,vx:(Math.random()-.5)*3,vy:0,h:Math.random()*360});status.textContent='Toys: '+balls.length;}
+      document.getElementById('add').onclick=()=>add();document.getElementById('reset').onclick=()=>{balls=[];status.textContent='Toys: 0'};
+      function point(e){const r=c.getBoundingClientRect();return{x:(e.clientX-r.left)*c.width/r.width,y:(e.clientY-r.top)*c.height/r.height}}
+      c.onpointerdown=e=>{const p=point(e);drag=[...balls].reverse().find(b=>Math.hypot(p.x-b.x,p.y-b.y)<b.r+6);if(!drag){add(p.x,p.y);drag=balls[balls.length-1]}last=p;c.setPointerCapture(e.pointerId)};
+      c.onpointermove=e=>{if(!drag)return;const p=point(e);drag.vx=(p.x-last.x)*.5;drag.vy=(p.y-last.y)*.5;drag.x=p.x;drag.y=p.y;last=p};c.onpointerup=()=>drag=null;c.onpointercancel=()=>drag=null;
+      function frame(){x.clearRect(0,0,c.width,c.height);x.strokeStyle='#ff33421c';for(let y=40;y<c.height;y+=40){x.beginPath();x.moveTo(0,y);x.lineTo(c.width,y);x.stroke()}
+        for(const b of balls){if(b!==drag){b.vy+=.18;b.x+=b.vx;b.y+=b.vy;b.vx*=.995;if(b.y+b.r>c.height){b.y=c.height-b.r;b.vy*=-.72}if(b.x<b.r||b.x>c.width-b.r){b.x=Math.max(b.r,Math.min(c.width-b.r,b.x));b.vx*=-.8}}
+          x.beginPath();x.arc(b.x,b.y,b.r,0,Math.PI*2);x.fillStyle=`hsl(${b.h} 78% 57%)`;x.shadowColor=x.fillStyle;x.shadowBlur=15;x.fill();x.shadowBlur=0;x.beginPath();x.arc(b.x-b.r*.3,b.y-b.r*.3,b.r*.22,0,Math.PI*2);x.fillStyle='#ffffffaa';x.fill()}
+        requestAnimationFrame(frame)}frame();
+    })();
+  </script>
+</body>
+</html>
